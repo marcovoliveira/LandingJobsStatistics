@@ -1,0 +1,25 @@
+{
+  "name": "lj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcovoliveira/LandingJobsStatistics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcovoliveira/LandingJobsStatistics/issues"
+  },
+  "homepage": "https://github.com/marcovoliveira/LandingJobsStatistics#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cli-pie": "^2.4.1",
+    "dotenv": "^8.2.0"
+  }
+}
