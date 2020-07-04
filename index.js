@@ -1,10 +1,9 @@
 require('dotenv').config()
 const transform = require("./transform.js")
-const generateChart = require("./charts.js")
+const chart = require("./charts.js")
 const axios = require('axios');
-const Pie = require("cli-pie");
 
-let map = new Map()
+let hashMap = new Map()
 let limit = 50;
 
 function getJobs(offset = 0, data = []) {
@@ -30,21 +29,21 @@ function getTechs(jobs) {
     let tags = []
     jobs.map((job) => {
         job.tags.map((tag) => {
-            if (map.has(tag)) {
-                let value = map.get(tag)
-                map.set(tag, ++value)
+            if (hashMap.has(tag)) {
+                let value = hashMap.get(tag)
+                hashMap.set(tag, ++value)
             } else {
-                map.set(tag, 1)
+                hashMap.set(tag, 1)
             }
             tags.push(tag)
         })
     })
 
-    const mapSorted = new Map([...map.entries()].sort((a, b) => b[1] - a[1]));
+    const mapSorted = new Map([...hashMap.entries()].sort((a, b) => b[1] - a[1]));
     const visualData = transform.percentages(mapSorted)
     console.table(mapSorted);
     console.log(`Numero total de anuncios: ${jobs.length}`)
-    generateCharts(visualData);
+    chart.generateChart(visualData);
 
 }
 

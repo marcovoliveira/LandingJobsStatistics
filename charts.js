@@ -1,5 +1,6 @@
 
-function generateCharts(mapSorted) {
+function generateChart(mapSorted) {
+    const Pie = require("cli-pie");
 
     var p = new Pie(30, mapSorted, {
         legend: true
@@ -9,4 +10,4 @@ function generateCharts(mapSorted) {
     console.log(p.toString());
 }
 
-exports.generateCharts = generateCharts;
+exports.generateChart = generateChart;
